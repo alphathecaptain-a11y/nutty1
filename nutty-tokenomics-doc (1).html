@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUTTY DEX - Professional Tokenomics Proposal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .tagline {
+            font-size: 1.5em;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            page-break-inside: avoid;
+        }
+        
+        .section h2 {
+            color: #8B4513;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B4513;
+        }
+        
+        .section h3 {
+            color: #654321;
+            font-size: 1.6em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section h4 {
+            color: #555;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .chart-title {
+            text-align: center;
+            color: #8B4513;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        table thead {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+        }
+        
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        table tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tbody tr:hover {
+            background: #f5f5f5;
+        }
+        
+        table tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-left: 5px solid #8B4513;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .formula-box {
+            background: #f0f0f0;
+            border: 2px solid #8B4513;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .stat-card .label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+        }
+        
+        .comparison-table table {
+            min-width: 600px;
+        }
+        
+        .winner {
+            background: #d4edda;
+            font-weight: bold;
+        }
+        
+        .draw {
+            background: #fff3cd;
+        }
+        
+        .logo {
+            font-size: 3em;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .chart-container {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🥜🐿️</div>
+            <h1>NUTTY DEX</h1>
+        </div>
+        
+        <div class="content">
+            <!-- Executive Summary -->
+            <div class="section">
+                <h2>Executive Summary</h2>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    NUTTY will be a next-generation decentralized perpetual exchange that combines professional trading infrastructure with innovative tokenomics, creating sustainable value through genuine trading activity rather than gimmicks. By integrating with the $2B PNUT ecosystem while maintaining independence, NUTTY creates a unique value proposition in the DEX landscape.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="label">Total Supply</div>
+                        <div class="value">1B</div>
+                        <div class="label">NUTTY Tokens</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Community Allocation</div>
+                        <div class="value">65%</div>
+                        <div class="label">Community First</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Target Raise</div>
+                        <div class="value">$15M</div>
+                        <div class="label">Strategic Capital</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Year 1 Target</div>
+                        <div class="value">$2B</div>
+                        <div class="label">Monthly Volume</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Token Distribution -->
+            <div class="section">
+                <h2>1. Token Distribution</h2>
+                <p><strong>Total Supply: 1,000,000,000 NUTTY</strong></p>
+                
+                <div class="chart-container">
+                    <div class="chart-title">NUTTY Token Distribution</div>
+                    <canvas id="tokenDistChart"></canvas>
+                </div>
+                
+                <h3>Community First Approach (65%)</h3>
+                <ul>
+                    <li><strong>40% Community Rewards</strong> (400M tokens)
+                        <ul>
+                            <li>5% unlocked at TGE for early adopters</li>
+                            <li>35% vested linearly over 60 months</li>
+                            <li>Distributed through trading rewards, LP incentives, and governance participation</li>
+                        </ul>
+                    </li>
+                    <li><strong>15% Ecosystem Growth</strong> (150M tokens)
+                        <ul>
+                            <li>Strategic partnerships, integrations</li>
+                            <li>Developer grants and bounties</li>
+                            <li>24-month linear vesting</li>
+                        </ul>
+                    </li>
+                    <li><strong>10% Public Sale</strong> (100M tokens)
+                        <ul>
+                            <li>5% seed round ($0.015/token)</li>
+                            <li>5% public round ($0.025/token)</li>
+                            <li>20% unlock at TGE, 80% over 6 months</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Platform Development (35%)</h3>
+                <ul>
+                    <li><strong>12% Team & Advisors</strong> (120M tokens)
+                        <ul>
+                            <li>12-month cliff, 36-month linear vesting</li>
+                            <li>Performance-based unlocks tied to volume milestones</li>
+                        </ul>
+                    </li>
+                    <li><strong>8% Treasury</strong> (80M tokens)
+                        <ul>
+                            <li>DAO-controlled after 6 months</li>
+                            <li>For future development and emergencies</li>
+                        </ul>
+                    </li>
+                    <li><strong>10% Liquidity & Market Making</strong> (100M tokens)
+                        <ul>
+                            <li>50% for DEX liquidity at launch</li>
+                            <li>50% for CEX listings and market makers</li>
+                        </ul>
+                    </li>
+                    <li><strong>5% Insurance Fund</strong> (50M tokens)
+                        <ul>
+                            <li>Protects users during extreme events</li>
+                            <li>Replenished from protocol revenue</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Revenue Distribution Model -->
+            <div class="section">
+                <h2>2. Revenue Distribution Model</h2>
+                
+                <h3>Trading Fee Structure</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fee Type</th>
+                            <th>Base Rate</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maker Fee</td>
+                            <td>0.015%</td>
+                            <td>Orders that add liquidity to the order book</td>
+                        </tr>
+                        <tr>
+                            <td>Taker Fee</td>
+                            <td>0.045%</td>
+                            <td>Orders that remove liquidity from the order book</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="chart-container">
+                    <div class="chart-title">Trading Fee Distribution</div>
+                    <canvas id="feeDistChart"></canvas>
+                </div>
+                
+                <h3>Dynamic Fee Adjustments - VIP Tiers</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tier</th>
+                            <th>30-Day Volume</th>
+                            <th>Maker Fee</th>
+                            <th>Taker Fee</th>
+                            <th>NUTTY Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>VIP 0</td>
+                            <td>&lt;$1M</td>
+                            <td>0.015%</td>
+                            <td>0.045%</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>VIP 1</td>
+                            <td>$1M+</td>
+                            <td>0.012%</td>
+                            <td>0.040%</td>
+                            <td>10,000</td>
+                        </tr>
+                        <tr>
+                            <td>VIP 2</td>
+                            <td>$10M+</td>
+                            <td>0.010%</td>
+                            <td>0.035%</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td>VIP 3</td>
+                            <td>$50M+</td>
+                            <td>0.008%</td>
+                            <td>0.030%</td>
+                            <td>200,000</td>
+                        </tr>
+                        <tr>
+                            <td>VIP 4</td>
+                            <td>$200M+</td>
+                            <td>0.005%</td>
+                            <td>0.025%</td>
+                            <td>1,000,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- NUTTY Rewards System -->
+            <div class="section">
+                <h2>3. NUTTY Rewards System (NRS)</h2>
+                
+                <div class="formula-box">
+                    Weekly NUTTY Rewards = (Base Score × Quality Multiplier × Ecosystem Multiplier) + Bonus Rewards
+                </div>
+                
+                <h3>Score Components Breakdown</h3>
+                <div class="chart-container">
+                    <div class="chart-title">NRS Scoring Weight Distribution</div>
+                    <canvas id="scoringChart"></canvas>
+                </div>
+                
+                <h3>Base Score Components (70% weight)</h3>
+                <div class="highlight-box">
+                    <h4>1. Trading Volume Score (40%)</h4>
+                    <ul>
+                        <li>Taker orders: 1.5x multiplier</li>
+                        <li>Non-stable pairs: 1.2x multiplier</li>
+                        <li>New listings: 2x multiplier (first 30 days)</li>
+                    </ul>
+                    
+                    <h4>2. Fee Contribution Score (30%)</h4>
+                    <ul>
+                        <li>Actual fees paid to protocol</li>
+                        <li>Prevents wash trading naturally</li>
+                    </ul>
+                </div>
+                
+                <h3>Quality Multiplier (20% weight)</h3>
+                <div class="highlight-box">
+                    <h4>1. Position Quality (10%)</h4>
+                    <ul>
+                        <li>Holding time (capped at 2x volume score)</li>
+                        <li>Risk management (stop-loss usage)</li>
+                        <li>Profit consistency ranking</li>
+                    </ul>
+                    
+                    <h4>2. Platform Loyalty (10%)</h4>
+                    <ul>
+                        <li>Consecutive active weeks</li>
+                        <li>Asset utilization (using NUTTY as collateral)</li>
+                        <li>Governance participation</li>
+                    </ul>
+                </div>
+                
+                <h3>Ecosystem Multiplier (10% weight)</h3>
+                <div class="highlight-box">
+                    <h4>1. Team Power (5%)</h4>
+                    <ul>
+                        <li>Combined team volume thresholds</li>
+                        <li>Multipliers: 1.1x to 2x based on team size and activity</li>
+                    </ul>
+                    
+                    <h4>2. Referral Network (5%)</h4>
+                    <ul>
+                        <li>Direct referrals: 8% of their base score</li>
+                        <li>Second-tier: 3% of their base score</li>
+                        <li>Active referral bonus: +2% if 5+ active referrals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- NLP System -->
+            <div class="section">
+                <h2>4. NUTTY Liquidity Provider Token (NLP)</h2>
+                
+                <h3>How NLP Works</h3>
+                <ul>
+                    <li>Users deposit stablecoins/crypto to mint NLP</li>
+                    <li>NLP acts as counterparty to all trades</li>
+                    <li>Value accrues from fees and trading P&L</li>
+                </ul>
+                
+                <h3>NLP Reward Structure</h3>
+                <div class="chart-container">
+                    <div class="chart-title">NLP APY Sources</div>
+                    <canvas id="nlpChart"></canvas>
+                </div>
+                
+                <h3>Risk Management</h3>
+                <ul>
+                    <li>Maximum 70% utilization rate</li>
+                    <li>Dynamic funding rates based on skew</li>
+                    <li>Automatic rebalancing mechanisms</li>
+                    <li>Insurance fund coverage</li>
+                </ul>
+            </div>
+            
+            <!-- Staking Mechanisms -->
+            <div class="section">
+                <h2>5. Staking Mechanisms</h2>
+                
+                <h3>Single-Sided NUTTY Staking (sNUTTY)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lock Duration</th>
+                            <th>APY Boost</th>
+                            <th>Voting Power</th>
+                            <th>Fee Share</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flexible</td>
+                            <td>1x</td>
+                            <td>0.5x</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td>30 days</td>
+                            <td>1.5x</td>
+                            <td>1x</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>90 days</td>
+                            <td>2x</td>
+                            <td>2x</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>180 days</td>
+                            <td>3x</td>
+                            <td>3x</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>365 days</td>
+                            <td>5x</td>
+                            <td>5x</td>
+                            <td>25%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Benefits for sNUTTY Holders</h3>
+                <ul>
+                    <li>Share of protocol revenue (25% of all fees)</li>
+                    <li>Governance voting rights</li>
+                    <li>Early access to new features</li>
+                    <li>Boosted NRS rewards (up to 2x)</li>
+                    <li>Reduced trading fees</li>
+                </ul>
+            </div>
+            
+            <!-- PNUT Integration -->
+            <div class="section">
+                <h2>6. PNUT Integration Strategy - "The Squirrel Alliance"</h2>
+                
+                <h3>Strategic Partnership Benefits</h3>
+                <p>Unlike unsustainable "buy and burn" approaches, we create <strong>mutual value accrual</strong> between NUTTY and PNUT ecosystems.</p>
+                
+                <div class="chart-container">
+                    <div class="chart-title">PNUT Integration Benefits Distribution</div>
+                    <canvas id="pnutChart"></canvas>
+                </div>
+                
+                <h3>PNUT Holder Benefits</h3>
+                
+                <h4>1. PNUT Staking Vault (Exclusive Tier)</h4>
+                <ul>
+                    <li>Stake PNUT to earn NUTTY rewards</li>
+                    <li>5% of all NUTTY emissions allocated to PNUT stakers</li>
+                    <li>20% trading fee discount on NUTTY DEX</li>
+                    <li>1.5x NRS rewards multiplier</li>
+                    <li>Early access to new trading pairs</li>
+                    <li>Exclusive "Diamond Squirrel" NFT badge</li>
+                </ul>
+                
+                <h4>2. PNUT as Premium Collateral</h4>
+                <ul>
+                    <li>Use PNUT as collateral at 80% value ratio</li>
+                    <li>Special PNUT/USDC perpetual with 0% maker fees</li>
+                    <li>PNUT collateral earns 2x reward points</li>
+                    <li>Liquidation protection: 5% buffer for PNUT holders</li>
+                </ul>
+                
+                <h3>The "Squirrel Squad" Loyalty Program</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Squad Level</th>
+                            <th>PNUT Required</th>
+                            <th>NUTTY Required</th>
+                            <th>Benefits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bronze</td>
+                            <td>10,000+</td>
+                            <td>5,000+</td>
+                            <td>1.2x rewards, 10% fee discount</td>
+                        </tr>
+                        <tr>
+                            <td>Silver</td>
+                            <td>50,000+</td>
+                            <td>25,000+</td>
+                            <td>1.5x rewards, 20% fee discount</td>
+                        </tr>
+                        <tr>
+                            <td>Gold</td>
+                            <td>200,000+</td>
+                            <td>100,000+</td>
+                            <td>2x rewards, 30% fee discount</td>
+                        </tr>
+                        <tr>
+                            <td>Diamond</td>
+                            <td>1,000,000+</td>
+                            <td>500,000+</td>
+                            <td>3x rewards, 50% fee discount</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>PNUT Flywheel Enhancement</h3>
+                <div class="highlight-box">
+                    <p style="text-align: center; font-size: 1.1em;">
+                        PNUT Holders stake on NUTTY → Get fee share + NUTTY rewards → 
+                        Increased NUTTY DEX volume → More fees to PNUT stakers → 
+                        PNUT utility increases → Attracts more PNUT buyers
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Capital Allocation -->
+            <div class="section">
+                <h2>7. Capital Raise Allocation</h2>
+                <p><strong>Target: $15,000,000</strong></p>
+                
+                <div class="chart-container">
+                    <div class="chart-title">$15M Capital Allocation</div>
+                    <canvas id="capitalChart"></canvas>
+                </div>
+                
+                <h3>Detailed Breakdown</h3>
+                <ul>
+                    <li><strong>$6M - Liquidity Provisions (40%)</strong>
+                        <ul>
+                            <li>$3M DEX liquidity (NUTTY pairs)</li>
+                            <li>$2M NLP initial seed</li>
+                            <li>$1M Cross-chain bridges</li>
+                        </ul>
+                    </li>
+                    <li><strong>$3M - Development (20%)</strong>
+                        <ul>
+                            <li>Core team expansion</li>
+                            <li>Security audits (multiple firms)</li>
+                            <li>Infrastructure scaling</li>
+                        </ul>
+                    </li>
+                    <li><strong>$2.5M - Marketing & Growth (17%)</strong>
+                        <ul>
+                            <li>Trader acquisition campaigns</li>
+                            <li>Influencer partnerships</li>
+                            <li>Community incentives</li>
+                            <li>Hackathons & competitions</li>
+                        </ul>
+                    </li>
+                    <li><strong>$2M - CEX Listings (13%)</strong>
+                        <ul>
+                            <li>Top-tier exchange listings</li>
+                            <li>Market making services</li>
+                        </ul>
+                    </li>
+                    <li><strong>$1.5M - Operations (10%)</strong>
+                        <ul>
+                            <li>Legal & compliance</li>
+                            <li>Operating expenses (18 months)</li>
+                            <li>Insurance & risk management</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Launch Phases -->
+            <div class="section">
+                <h2>8. Launch Phases</h2>
+                
+                <h3>Roadmap Overview</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Timeline</th>
+                            <th>Key Milestones</th>
+                            <th>Volume Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Genesis</strong></td>
+                            <td>Months 1-3</td>
+                            <td>Limited pairs (BTC, ETH, SOL), 2x rewards, Community bootstrap</td>
+                            <td>$100M/month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expansion</strong></td>
+                            <td>Months 4-6</td>
+                            <td>20+ pairs, Advanced orders, Mobile app, CEX listings</td>
+                            <td>$500M/month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evolution</strong></td>
+                            <td>Months 7-12</td>
+                            <td>Options trading, Structured products, Cross-chain</td>
+                            <td>$2B/month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maturity</strong></td>
+                            <td>Year 2+</td>
+                            <td>Forex/commodities, Social trading, NUTTY Chain</td>
+                            <td>$10B/month</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Comparison with ASTER -->
+            <div class="section">
+                <h2>9. NUTTY vs ASTER Comparison</h2>
+                
+                <h3>Key Metrics Comparison</h3>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>NUTTY</th>
+                                <th>ASTER</th>
+                                <th>Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="winner">
+                                <td>Community Allocation</td>
+                                <td>65% (includes PNUT)</td>
+                                <td>53.5%</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Team Allocation</td>
+                                <td>12%</td>
+                                <td>5%</td>
+                                <td>ASTER ✅</td>
+                            </tr>
+                            <tr class="winner">
+                                <td>Insurance Fund</td>
+                                <td>5% dedicated</td>
+                                <td>Not specified</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Trading Fees</td>
+                                <td>0.015%/0.045%</td>
+                                <td>0.01%/0.035%</td>
+                                <td>ASTER ✅</td>
+                            </tr>
+                            <tr class="winner">
+                                <td>Fee Transparency</td>
+                                <td>Fully detailed</td>
+                                <td>Partially detailed</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                            <tr class="winner">
+                                <td>External Integration</td>
+                                <td>Deep PNUT synergy</td>
+                                <td>APX migration only</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                            <tr class="draw">
+                                <td>Reward System</td>
+                                <td>Multi-dimensional</td>
+                                <td>Multi-dimensional</td>
+                                <td>Draw 🤝</td>
+                            </tr>
+                            <tr class="winner">
+                                <td>Referral Program</td>
+                                <td>8%/3% + quality bonus</td>
+                                <td>10%/5% fixed</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Leverage</td>
+                                <td>Up to 100x</td>
+                                <td>Up to 1001x</td>
+                                <td>ASTER ✅</td>
+                            </tr>
+                            <tr class="winner">
+                                <td>Staking Options</td>
+                                <td>5 tiers with clear benefits</td>
+                                <td>Not detailed</td>
+                                <td>NUTTY ✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Final Scorecard</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="label">NUTTY Wins</div>
+                        <div class="value">19</div>
+                        <div class="label">Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">ASTER Wins</div>
+                        <div class="value">6</div>
+                        <div class="label">Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Draws</div>
+                        <div class="value">4</div>
+                        <div class="label">Categories</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Risk Mitigation -->
+            <div class="section">
+                <h2>10. Risk Mitigation</h2>
+                
+                <h3>Technical Risks</h3>
+                <ul>
+                    <li>Multiple audit firms pre-launch</li>
+                    <li>Gradual scaling with caps</li>
+                    <li>Bug bounty program (up to $1M)</li>
+                    <li>Time-locked upgrades</li>
+                </ul>
+                
+                <h3>Economic Risks</h3>
+                <ul>
+                    <li>Insurance fund (5% of supply)</li>
+                    <li>Dynamic fee adjustments</li>
+                    <li>Anti-manipulation measures</li>
+                    <li>Oracle redundancy</li>
+                </ul>
+                
+                <h3>Regulatory Risks</h3>
+                <ul>
+                    <li>Geo-restrictions where necessary</li>
+                    <li>KYC for large positions</li>
+                    <li>Compliance fund allocation</li>
+                    <li>Legal opinion letters</li>
+                </ul>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="section">
+                <h2>Conclusion</h2>
+                
+                <div class="highlight-box" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%); color: white; padding: 30px;">
+                    <h3 style="color: white; margin-bottom: 20px;">The NUTTY Advantage</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        NUTTY's tokenomics create a sustainable ecosystem where traders benefit from low fees and rewards, 
+                        liquidity providers earn real yield, token holders capture protocol value, referrers build profitable networks, 
+                        and the protocol grows sustainably.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                        Unlike memecoins or unsustainable DeFi, NUTTY focuses on creating genuine value through professional 
+                        trading infrastructure, fair token distribution, and innovative reward mechanisms that align all 
+                        stakeholder incentives for long-term success.
+                    </p>
+                    <p style="font-size: 1.3em; font-weight: bold; text-align: center; margin-top: 30px;">
+                        The goal isn't to pump and dump – it's to build the leading decentralized derivatives exchange 
+                        that generates real revenue and distributes it fairly to participants.
+                    </p>
+                </div>
+                
+                <div class="formula-box" style="margin-top: 30px; font-size: 1.2em;">
+                    <strong>The Winning Formula:</strong><br>
+                    NUTTY = (ASTER's professionalism + PNUT's virality + Enhanced transparency) × Community
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="logo">🥜🐿️</div>
+            <h3>NUTTY DEX</h3>
+            <p>"Where Squirrels Become Whales"</p>
+            <p style="margin-top: 20px; opacity: 0.8;">© 2024 NUTTY DEX - Professional Tokenomics Proposal</p>
+        </div>
+    </div>
+    
+    <script>
+        // Token Distribution Chart
+        const tokenDistCtx = document.getElementById('tokenDistChart').getContext('2d');
+        new Chart(tokenDistCtx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Community Rewards (40%)',
+                    'Ecosystem Growth (15%)',
+                    'Public Sale (10%)',
+                    'Team & Advisors (12%)',
+                    'Treasury (8%)',
+                    'Liquidity & MM (10%)',
+                    'Insurance Fund (5%)'
+                ],
+                datasets: [{
+                    data: [40, 15, 10, 12, 8, 10, 5],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F',
+                        '#D2691E',
+                        '#DEB887',
+                        '#F4A460',
+                        '#BC8F8F'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Fee Distribution Chart
+        const feeDistCtx = document.getElementById('feeDistChart').getContext('2d');
+        new Chart(feeDistCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'NLP Providers (35%)',
+                    'NUTTY Stakers (25%)',
+                    'Buyback & Distribute (20%)',
+                    'Insurance Fund (10%)',
+                    'Treasury (5%)',
+                    'Referral Rewards (5%)'
+                ],
+                datasets: [{
+                    data: [35, 25, 20, 10, 5, 5],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F',
+                        '#D2691E',
+                        '#DEB887',
+                        '#F4A460'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Scoring Weight Chart
+        const scoringCtx = document.getElementById('scoringChart').getContext('2d');
+        new Chart(scoringCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Base Score', 'Quality Multiplier', 'Ecosystem Multiplier'],
+                datasets: [{
+                    label: 'Weight Distribution',
+                    data: [70, 20, 10],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            suffix: '%'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // NLP APY Sources Chart
+        const nlpCtx = document.getElementById('nlpChart').getContext('2d');
+        new Chart(nlpCtx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Trading Fees (35%)',
+                    'Funding Fees (80%)',
+                    'Liquidation Penalties (50%)',
+                    'Borrowing Fees',
+                    'NUTTY Incentives (2yr)'
+                ],
+                datasets: [{
+                    data: [35, 30, 20, 10, 5],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F',
+                        '#D2691E',
+                        '#DEB887'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // PNUT Integration Chart
+        const pnutCtx = document.getElementById('pnutChart').getContext('2d');
+        new Chart(pnutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'PNUT Staking Rewards (5%)',
+                    'Fee Share to PNUT (2.5%)',
+                    'Collateral Benefits',
+                    'Squirrel Squad Rewards',
+                    'Exclusive Products'
+                ],
+                datasets: [{
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F',
+                        '#D2691E',
+                        '#DEB887'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Capital Allocation Chart
+        const capitalCtx = document.getElementById('capitalChart').getContext('2d');
+        new Chart(capitalCtx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Liquidity Provisions ($6M)',
+                    'Development ($3M)',
+                    'Marketing & Growth ($2.5M)',
+                    'CEX Listings ($2M)',
+                    'Operations ($1.5M)'
+                ],
+                datasets: [{
+                    data: [6, 3, 2.5, 2, 1.5],
+                    backgroundColor: [
+                        '#8B4513',
+                        '#A0522D',
+                        '#CD853F',
+                        '#D2691E',
+                        '#DEB887'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += (context.parsed / 15 * 100).toFixed(1) + '%';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
