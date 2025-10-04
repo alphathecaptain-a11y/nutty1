@@ -558,8 +558,13 @@
             }
 
             .chart-container {
-                padding: 1rem;
-                height: 400px;
+                padding: 0.75rem;
+                height: auto;
+                min-height: 350px;
+            }
+
+            .chart-container canvas {
+                max-height: 350px;
             }
 
             table th, table td {
@@ -637,9 +642,9 @@
                         <div class="label">Airdrop & Rewards</div>
                     </div>
                     <div class="stat-card">
-                        <div class="label">Target Raise</div>
-                        <div class="value">$15M</div>
-                        <div class="label">Strategic Capital</div>
+                        <div class="label">ICO Allocation</div>
+                        <div class="value">10%</div>
+                        <div class="label">100M Tokens</div>
                     </div>
                 </div>
             </div>
@@ -662,14 +667,13 @@
                                 <ul>
                                     <li>Airdrop available to claim at TGE</li>
                                     <li>30-day claim window from TGE date</li>
-                                    <li>Claimed tokens: 50% unlocked immediately, 50% linear vesting over 3 months</li>
-                                    <li>Unclaimed tokens after 30 days redirect to community pool for future distribution</li>
-                                    <li>Maximum immediate unlock at TGE: 26.75M tokens (5% of total supply)</li>
+                                    <li>100% unlocked immediately upon claiming - no vesting</li>
+                                    <li>Unclaimed tokens after 30 days redirect to future seasons</li>
                                 </ul>
                             </li>
-                            <li>43.5% vested over 72 months for ongoing rewards</li>
+                            <li>43.5% distributed over 72 months for ongoing rewards</li>
                             <li>Liquidity mining emissions, staking incentives, PNUT holder airdrops</li>
-                            <li>Time-based vesting schedule with enhanced emissions during launch phases</li>
+                            <li>Time-based emission schedule with enhanced rates during launch phases</li>
                         </ul>
                     </li>
                 </ul>
@@ -678,7 +682,6 @@
                 <ul>
                     <li><strong>10% Public Distribution</strong> (100M tokens)
                         <ul>
-                            <li>Raises $15M USDT for project development</li>
                             <li>30-day cliff period after TGE</li>
                             <li>12-month linear vesting schedule</li>
                             <li>Token price: $0.15 per NUTTY</li>
@@ -980,16 +983,51 @@
                         PNUT utility increases → Attracts more PNUT buyers
                     </p>
                 </div>
+
+                <h3>Season 1 PNUT Staking Vault - TGE Launch Special</h3>
+                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.2), rgba(218, 165, 32, 0.2)); border: 2px solid var(--accent-orange);">
+                    <h4 style="color: var(--accent-orange); margin-top: 0;">🔥 Exclusive TGE Hype Campaign 🔥</h4>
+
+                    <div class="stats-grid" style="margin: 1.5rem 0;">
+                        <div class="stat-card" style="background: rgba(0,0,0,0.4);">
+                            <div class="label">Season 1 APY</div>
+                            <div class="value" style="color: var(--accent-orange);">100%</div>
+                            <div class="label">NUTTY Rewards</div>
+                        </div>
+                        <div class="stat-card" style="background: rgba(0,0,0,0.4);">
+                            <div class="label">Duration</div>
+                            <div class="value">2-4 Weeks</div>
+                            <div class="label">Post-TGE</div>
+                        </div>
+                        <div class="stat-card" style="background: rgba(0,0,0,0.4);">
+                            <div class="label">Receipt Token</div>
+                            <div class="value">sNUTTY</div>
+                            <div class="label">Auto-compounding</div>
+                        </div>
+                    </div>
+
+                    <p><strong>The Ultimate DeFi Strategy:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Stake PNUT</strong> → Receive sNUTTY (staked NUTTY receipt tokens)</li>
+                        <li><strong>Earn 100% APY</strong> in NUTTY emissions during Season 1</li>
+                        <li><strong>Auto-compounding rewards</strong> - sNUTTY value increases automatically</li>
+                        <li><strong>Additional benefits:</strong> 20% trading fee discount + priority access to new pairs</li>
+                        <li><strong>Composable sNUTTY:</strong> Use as collateral in other DeFi protocols</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-muted);">
+                        <strong>Perfect for influencer campaigns:</strong> High APY launch strategy designed to attract DeFi influencers and create viral TGE momentum.
+                    </p>
+                </div>
             </div>
             
             <!-- Capital Allocation -->
             <div class="section">
                 <h2>6. ICO Capital Allocation</h2>
-                <p><strong>ICO Raise: $15,000,000 USDT</strong></p>
-                <p style="margin-top: 1rem;">100M NUTTY tokens (10% of supply) at $0.15 per token</p>
+                <p><strong>100M NUTTY tokens (10% of supply) at $0.15 per token</strong></p>
 
                 <div class="chart-container">
-                    <div class="chart-title">$15M ICO Capital Allocation</div>
+                    <div class="chart-title">ICO Capital Allocation</div>
                     <canvas id="capitalChart"></canvas>
                 </div>
 
@@ -998,7 +1036,6 @@
                 <div class="funding-breakdown">
                     <div class="funding-category">
                         <div class="funding-header">
-                            <div class="funding-amount">$5M</div>
                             <div class="funding-title">Launch & Liquidity</div>
                             <div class="funding-percentage">33.3%</div>
                         </div>
@@ -1011,7 +1048,6 @@
 
                     <div class="funding-category">
                         <div class="funding-header">
-                            <div class="funding-amount">$5M</div>
                             <div class="funding-title">PNUT Treasury Acquisition</div>
                             <div class="funding-percentage">33.3%</div>
                         </div>
@@ -1024,7 +1060,6 @@
 
                     <div class="funding-category">
                         <div class="funding-header">
-                            <div class="funding-amount">$2M</div>
                             <div class="funding-title">Team & Development</div>
                             <div class="funding-percentage">13.3%</div>
                         </div>
@@ -1037,7 +1072,6 @@
 
                     <div class="funding-category">
                         <div class="funding-header">
-                            <div class="funding-amount">$2M</div>
                             <div class="funding-title">CEX Listings & Market Making</div>
                             <div class="funding-percentage">13.3%</div>
                         </div>
@@ -1050,7 +1084,6 @@
 
                     <div class="funding-category">
                         <div class="funding-header">
-                            <div class="funding-amount">$1M</div>
                             <div class="funding-title">Marketing & KOL Campaigns</div>
                             <div class="funding-percentage">6.7%</div>
                         </div>
@@ -1074,7 +1107,7 @@
 
                 <div class="highlight-box">
                     <h4>Token Emission Model</h4>
-                    <p>Community token emissions follow a <strong>time-based linear vesting schedule</strong> over 72 months. During early launch phases, emission rates are increased to bootstrap liquidity and incentivize early adoption. All emissions are distributed proportionally to:</p>
+                    <p>Community token emissions follow a <strong>time-based linear emission schedule</strong> over 72 months. During early launch phases, emission rates are increased to bootstrap liquidity and incentivize early adoption. All emissions are distributed proportionally to:</p>
                     <ul>
                         <li>NLP providers and stakers based on their pool shares</li>
                         <li>Active traders based on trading volume and fees paid</li>
@@ -1297,19 +1330,9 @@
                                 <td>High boost for native token</td>
                             </tr>
                             <tr>
-                                <td>Small Alts</td>
+                                <td>New Listings</td>
                                 <td>3.0x</td>
-                                <td>Incentivize new listing liquidity</td>
-                            </tr>
-                            <tr>
-                                <td>Major Alts (SOL, BNB)</td>
-                                <td>2.0x</td>
-                                <td>Support popular pairs</td>
-                            </tr>
-                            <tr>
-                                <td>BTC/USDT, ETH/USDT</td>
-                                <td>1.0x</td>
-                                <td>Baseline (most liquid)</td>
+                                <td>Attract new projects and users to platform</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1471,13 +1494,12 @@
                     <p style="margin-top: 15px;"><strong>Claim Window Mechanics:</strong></p>
                     <ul style="margin-left: 20px;">
                         <li><strong>30-day claim window</strong> starting at TGE</li>
-                        <li><strong>50% immediate unlock</strong> upon claiming</li>
-                        <li><strong>50% vested</strong> over 3 months (linear)</li>
-                        <li><strong>Unclaimed tokens</strong> redirect to community pool after 30 days</li>
+                        <li><strong>100% unlocked immediately</strong> upon claiming - no vesting</li>
+                        <li><strong>Unclaimed tokens</strong> redirect to future season rewards after 30 days</li>
                     </ul>
 
                     <p style="margin-top: 15px; font-style: italic; color: var(--text-muted);">
-                        <strong>Note:</strong> Your final token allocation is proportional to your share of the total points pool. The more points you earn relative to other traders, the larger your TGE airdrop.
+                        <strong>Long-term Flywheel:</strong> Instead of vesting, we use seasonal campaigns (Season 1, 2, 3...) to incentivize continued participation and create sustainable long-term engagement.
                     </p>
                 </div>
 
