@@ -1208,10 +1208,270 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Pre-TGE Points Campaign -->
+            <div class="section">
+                <h2>8. Pre-TGE Points Campaign</h2>
+
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    A <strong>12-week competitive trading program</strong> before Token Generation Event (TGE) to reward early traders, build liquidity, and bootstrap the NUTTY ecosystem. Points earned translate to airdrop allocation at TGE.
+                </p>
+
+                <h3>Campaign Structure</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="label">Duration</div>
+                        <div class="value">12 Weeks</div>
+                        <div class="label">Pre-TGE Campaign</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Epoch Length</div>
+                        <div class="value">1 Week</div>
+                        <div class="label">Thu 00:00 - Wed 23:59 UTC</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Weekly Cap</div>
+                        <div class="value">2M</div>
+                        <div class="label">Points (Adjustable)</div>
+                    </div>
+                </div>
+
+                <h3>Phased Points Allocation</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Weeks</th>
+                            <th>Weekly Cap</th>
+                            <th>Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Launch Hype</td>
+                            <td>1-4</td>
+                            <td>3,000,000</td>
+                            <td>Maximum rewards to attract initial traders</td>
+                        </tr>
+                        <tr>
+                            <td>Sustainable Growth</td>
+                            <td>5-8</td>
+                            <td>2,000,000</td>
+                            <td>Balanced rewards for consistent activity</td>
+                        </tr>
+                        <tr>
+                            <td>Pre-TGE Taper</td>
+                            <td>9-12</td>
+                            <td>1,500,000</td>
+                            <td>Gradual reduction before TGE</td>
+                        </tr>
+                        <tr>
+                            <td>Post-TGE (Ongoing)</td>
+                            <td>13+</td>
+                            <td>500,000</td>
+                            <td>Continued engagement rewards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Trading Pair Boosts</h3>
+                <div class="highlight-box">
+                    <p><strong>Incentivize ecosystem growth and PNUT partnership:</strong></p>
+                    <table style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Trading Pair</th>
+                                <th>Boost Multiplier</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PNUT/USDT</td>
+                                <td>5.0x</td>
+                                <td>Maximum boost for ecosystem partner</td>
+                            </tr>
+                            <tr>
+                                <td>NUTTY/USDT</td>
+                                <td>4.0x</td>
+                                <td>High boost for native token</td>
+                            </tr>
+                            <tr>
+                                <td>Small Alts</td>
+                                <td>3.0x</td>
+                                <td>Incentivize new listing liquidity</td>
+                            </tr>
+                            <tr>
+                                <td>Major Alts (SOL, BNB)</td>
+                                <td>2.0x</td>
+                                <td>Support popular pairs</td>
+                            </tr>
+                            <tr>
+                                <td>BTC/USDT, ETH/USDT</td>
+                                <td>1.0x</td>
+                                <td>Baseline (most liquid)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Loyalty & Activity Multipliers</h3>
+                <div class="scoring-grid">
+                    <div class="scoring-card">
+                        <h4>Weekly Loyalty Boost</h4>
+                        <ul>
+                            <li>Week 1: 1.0x (baseline)</li>
+                            <li>Week 2: 1.05x</li>
+                            <li>Week 3: 1.1x</li>
+                            <li>Week 4: 1.15x</li>
+                            <li>Week 5+: 1.2x (maximum)</li>
+                            <li><em>Resets if inactive for 2 weeks</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>PNUT Holder Multiplier</h4>
+                        <ul>
+                            <li>0 PNUT: 1.0x</li>
+                            <li>1,000+ PNUT: 1.1x</li>
+                            <li>5,000+ PNUT: 1.15x</li>
+                            <li>10,000+ PNUT: 1.2x</li>
+                            <li>50,000+ PNUT: 1.3x</li>
+                            <li><em>Stacks with other multipliers</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>Fee Tier Points Bonus</h4>
+                        <ul>
+                            <li>Nutty Apprentice: +5% points</li>
+                            <li>Squirrel Squire: +10% points</li>
+                            <li>Nutslinger: +15% points</li>
+                            <li>Nibbling Ninja: +20% points</li>
+                            <li>Nutbending Master: +30% points</li>
+                            <li><em>Bonus on top of tier benefits</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Scoring Formula</h3>
+                <div class="formula-box">
+                    <p style="margin-bottom: 15px;"><strong>Trader Score =</strong></p>
+                    <p style="font-size: 0.95em; line-height: 1.8;">
+                        Σ [(K<sub>taker</sub> × Volume<sub>BTC/ETH</sub> × B<sub>pair</sub> × B<sub>loyalty</sub>)<sup>b1</sup>]<br>
+                        + Σ [(K<sub>taker</sub> × Volume<sub>alts</sub> × B<sub>pair</sub> × B<sub>loyalty</sub>)<sup>b2</sup>]<br>
+                        + Σ [(K<sub>maker</sub> × Volume<sub>BTC/ETH</sub> × B<sub>pair</sub> × B<sub>loyalty</sub>)<sup>b3</sup>]<br>
+                        + Σ [(K<sub>maker</sub> × Volume<sub>alts</sub> × B<sub>pair</sub> × B<sub>loyalty</sub>)<sup>b4</sup>]
+                    </p>
+                </div>
+
+                <h3>Formula Parameters</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>K<sub>taker</sub></td>
+                            <td>0.0014</td>
+                            <td>Taker multiplier (4× maker rate)</td>
+                        </tr>
+                        <tr>
+                            <td>K<sub>maker</sub></td>
+                            <td>0.00035</td>
+                            <td>Maker multiplier (incentivizes liquidity)</td>
+                        </tr>
+                        <tr>
+                            <td>b1 (BTC/ETH maker)</td>
+                            <td>0.80</td>
+                            <td>Volume exponent - favors makers</td>
+                        </tr>
+                        <tr>
+                            <td>b2 (BTC/ETH taker)</td>
+                            <td>0.83</td>
+                            <td>Volume exponent for takers</td>
+                        </tr>
+                        <tr>
+                            <td>b3 (Alt maker)</td>
+                            <td>0.82</td>
+                            <td>Alt pair maker exponent</td>
+                        </tr>
+                        <tr>
+                            <td>b4 (Alt taker)</td>
+                            <td>0.85</td>
+                            <td>Alt pair taker exponent</td>
+                        </tr>
+                        <tr>
+                            <td>c</td>
+                            <td>0.7</td>
+                            <td>Global dampening constant</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Points Distribution</h3>
+                <div class="highlight-box">
+                    <h4>How Weekly Points Are Allocated:</h4>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Calculate individual scores</strong> using the formula above for each trader</li>
+                        <li><strong>Sum all trader scores:</strong> total_users_score = Σ(trader_score)</li>
+                        <li><strong>Normalize to weekly cap:</strong><br>
+                            user_points = (user_score ÷ total_users_score) × weekly_cap
+                        </li>
+                    </ol>
+
+                    <p style="margin-top: 15px;"><strong>Example Distribution (2M weekly cap):</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Top trader: ~500k-600k points (25-30%)</li>
+                        <li>Top 10 traders: ~1.2M points total (60%)</li>
+                        <li>Top 50 traders: ~1.7M points total (85%)</li>
+                        <li>All other traders: ~300k points (15%)</li>
+                    </ul>
+                </div>
+
+                <h3>Special Events & Boosts</h3>
+                <div class="scoring-grid">
+                    <div class="scoring-card">
+                        <h4>Double Points Weekends</h4>
+                        <ul>
+                            <li>Frequency: Once per month</li>
+                            <li>Duration: Saturday-Sunday</li>
+                            <li>Multiplier: 2× all points</li>
+                            <li>Weekly cap increases to 3M</li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>New Pair Launch Boost</h4>
+                        <ul>
+                            <li>Week 1: 10× boost</li>
+                            <li>Week 2: 5× boost</li>
+                            <li>Week 3: 3× boost</li>
+                            <li>Week 4+: Standard boost</li>
+                            <li><em>Stacks with pair multipliers</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Important Notes</h3>
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>Pre-TGE Campaign Only:</strong> This points system runs for 12 weeks before TGE. Post-TGE rewards use different mechanisms.</li>
+                        <li><strong>Stacking Multipliers:</strong> PNUT holder bonuses, loyalty boosts, and fee tier bonuses all stack multiplicatively.</li>
+                        <li><strong>Anti-Wash Trading:</strong> Maker/taker split and volume exponents prevent wash trading profitability.</li>
+                        <li><strong>Points ≠ Tokens:</strong> Points determine % share of TGE airdrop allocation, not direct token amounts.</li>
+                        <li><strong>Fair Distribution:</strong> Weekly caps ensure no single trader dominates entire campaign.</li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Original Launch Phases - now renamed as Roadmap -->
             <div class="section">
-                <h2>8. Product Development Roadmap</h2>
+                <h2>9. Product Development Roadmap</h2>
                 
                 <h3>Feature Rollout Timeline</h3>
                 <table>
