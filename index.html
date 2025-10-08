@@ -639,7 +639,7 @@
                     <div class="stat-card">
                         <div class="label">Community Allocation</div>
                         <div class="value">53.5%</div>
-                        <div class="label">Airdrop & Rewards</div>
+                        <div class="label">Long-term Rewards</div>
                     </div>
                     <div class="stat-card">
                         <div class="label">ICO Allocation</div>
@@ -659,21 +659,26 @@
                     <canvas id="tokenDistChart"></canvas>
                 </div>
 
-                <h3>Community & Airdrops (53.5%)</h3>
+                <h3>Community Allocation (53.5%)</h3>
                 <ul>
-                    <li><strong>53.5% Airdrop & Community Rewards</strong> (535M tokens)
+                    <li><strong>53.5% Community Allocation</strong> (535M tokens)
                         <ul>
-                            <li><strong>TGE Airdrop for Early Adopters & PNUT Holders (10% = 53.5M tokens):</strong>
+                            <li><strong>TGE Airdrop (10% of Community Allocation = 53.5M tokens):</strong>
                                 <ul>
-                                    <li>Airdrop available to claim at TGE</li>
-                                    <li>30-day claim window from TGE date</li>
+                                    <li>Distributed to early adopters and PNUT holders based on pre-TGE points campaign</li>
+                                    <li>Available to claim at TGE with 30-day claim window</li>
                                     <li>100% unlocked immediately upon claiming - no vesting</li>
                                     <li>Unclaimed tokens after 30 days redirect to future seasons</li>
                                 </ul>
                             </li>
-                            <li>43.5% distributed over 72 months for ongoing rewards</li>
-                            <li>Liquidity mining emissions, staking incentives, PNUT holder airdrops</li>
-                            <li>Time-based emission schedule with enhanced rates during launch phases</li>
+                            <li><strong>Ongoing Community Rewards (90% of Community Allocation = 481.5M tokens):</strong>
+                                <ul>
+                                    <li>Distributed over 72 months for sustained ecosystem growth</li>
+                                    <li>Liquidity mining emissions, staking incentives, seasonal campaigns</li>
+                                    <li>PNUT holder rewards and future airdrop seasons</li>
+                                    <li>Time-based emission schedule with enhanced rates during launch phases</li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -684,7 +689,7 @@
                         <ul>
                             <li>30-day cliff period after TGE</li>
                             <li>12-month linear vesting schedule</li>
-                            <li>Token price: $0.15 per NUTTY</li>
+                            <li>Token price: $0.075 per NUTTY</li>
                         </ul>
                     </li>
                 </ul>
@@ -824,26 +829,41 @@
             <!-- NLP System -->
             <div class="section">
                 <h2>3. NUTTY Liquidity Provider Token (NLP)</h2>
-                
+
+                <div class="highlight-box" style="background: rgba(255, 140, 0, 0.1); border: 1px solid var(--accent-orange);">
+                    <h4>Integration with Orderly Network</h4>
+                    <p>NUTTYDex leverages <strong>Orderly Network's Omnivault infrastructure</strong> to power the NLP mechanism. Orderly's Omnivault operates similarly to HLP (Hyperliquid Liquidity Provider) pools, providing:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Cross-margin perpetual trading liquidity</li>
+                        <li>Automated market-making across all trading pairs</li>
+                        <li>Unified liquidity pool serving as counterparty to traders</li>
+                        <li>Professional risk management and position hedging</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>NLP wraps Orderly's Omnivault</strong> with NUTTY-specific features: additional NUTTY token emissions, PNUT holder boosts, and NUTTYDex fee rebates.</p>
+                </div>
+
                 <h3>How NLP Works</h3>
                 <ul>
-                    <li>Users deposit stablecoins/crypto to mint NLP</li>
-                    <li>NLP acts as counterparty to all trades</li>
-                    <li>Value accrues from fees and trading P&L</li>
+                    <li>Users deposit USDC or other accepted assets to mint NLP tokens</li>
+                    <li>Deposits flow into Orderly's Omnivault infrastructure</li>
+                    <li>NLP acts as the counterparty to all perpetual trades on NUTTYDex</li>
+                    <li>Value accrues from trading fees, funding rate profits, and liquidation proceeds</li>
+                    <li>NLP holders earn base APY from Orderly + bonus NUTTY emissions</li>
                 </ul>
-                
+
                 <h3>NLP Reward Structure</h3>
                 <div class="chart-container">
                     <div class="chart-title">NLP APY Sources</div>
                     <canvas id="nlpChart"></canvas>
                 </div>
-                
+
                 <h3>Risk Management</h3>
                 <ul>
-                    <li>Maximum 70% utilization rate</li>
-                    <li>Dynamic funding rates based on skew</li>
-                    <li>Automatic rebalancing mechanisms</li>
-                    <li>Insurance fund coverage</li>
+                    <li>Maximum 70% utilization rate enforced by Orderly protocol</li>
+                    <li>Dynamic funding rates based on open interest skew</li>
+                    <li>Automatic delta hedging and rebalancing mechanisms</li>
+                    <li>Insurance fund coverage for extreme market events</li>
+                    <li>Position limits and circuit breakers for tail risk protection</li>
                 </ul>
             </div>
             
@@ -1024,7 +1044,8 @@
             <!-- Capital Allocation -->
             <div class="section">
                 <h2>6. ICO Capital Allocation</h2>
-                <p><strong>100M NUTTY tokens (10% of supply) at $0.15 per token</strong></p>
+                <p><strong>100M NUTTY tokens (10% of supply) at $0.075 per token</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.95em;">Fully Diluted Valuation (FDV): $75,000,000 | Market Cap at TGE: ~$7.5M (10% circulating)</p>
 
                 <div class="chart-container">
                     <div class="chart-title">ICO Capital Allocation</div>
@@ -1281,22 +1302,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Launch Hype</td>
+                            <td>Early Bootstrap</td>
                             <td>1-2</td>
-                            <td>3,000,000</td>
-                            <td>Maximum rewards to attract initial traders</td>
+                            <td>1,500,000</td>
+                            <td>Initial user acquisition and platform testing</td>
                         </tr>
                         <tr>
-                            <td>Sustainable Growth</td>
+                            <td>Growth Acceleration</td>
                             <td>3-4</td>
                             <td>2,000,000</td>
-                            <td>Balanced rewards for consistent activity</td>
+                            <td>Expanding user base and liquidity</td>
                         </tr>
                         <tr>
-                            <td>Pre-TGE Taper</td>
+                            <td>TGE Momentum Build</td>
                             <td>5-6</td>
-                            <td>1,500,000</td>
-                            <td>Gradual reduction before TGE</td>
+                            <td>3,000,000</td>
+                            <td>Maximum rewards to peak activity into TGE launch</td>
                         </tr>
                         <tr>
                             <td>Post-TGE (Ongoing)</td>
@@ -1467,9 +1488,9 @@
                     <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; margin: 15px 0;">
                         <p style="margin: 0 0 10px 0;"><strong>Total Points Pool (6 weeks):</strong></p>
                         <p style="margin: 0 0 20px 0; padding-left: 20px;">
-                            Week 1-2: 3,000,000 × 2 = 6,000,000 points<br>
+                            Week 1-2: 1,500,000 × 2 = 3,000,000 points<br>
                             Week 3-4: 2,000,000 × 2 = 4,000,000 points<br>
-                            Week 5-6: 1,500,000 × 2 = 3,000,000 points<br>
+                            Week 5-6: 3,000,000 × 2 = 6,000,000 points<br>
                             <strong>Total: 13,000,000 points</strong>
                         </p>
 
@@ -1540,9 +1561,191 @@
                 </div>
             </div>
 
+            <!-- Post-Airdrop Retention Strategy -->
+            <div class="section">
+                <h2>9. Post-Airdrop User Retention & Growth Strategy</h2>
+
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    <strong>Sustainable growth beyond initial airdrop momentum through competitive advantages, continuous incentives, and expanding beyond the PNUT community.</strong>
+                </p>
+
+                <h3>Core Competitive Advantages</h3>
+                <div class="highlight-box">
+                    <h4>Why Trade on NUTTYDex vs. Jupiter/Raydium?</h4>
+
+                    <div class="stats-grid" style="margin: 1.5rem 0;">
+                        <div class="stat-card">
+                            <div class="label">Lower Fees</div>
+                            <div class="value">0.02%</div>
+                            <div class="label">Maker Fee (vs 0.1% competitors)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Perpetual Trading</div>
+                            <div class="value">Up to 50x</div>
+                            <div class="label">Leverage via Orderly</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="label">Cross-Chain</div>
+                            <div class="value">Multi-Chain</div>
+                            <div class="label">Via Orderly Network</div>
+                        </div>
+                    </div>
+
+                    <p><strong>Unique Value Propositions:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Perpetual DEX + Spot Trading:</strong> Unified platform for both spot and leverage trading (competitors typically only offer spot)</li>
+                        <li><strong>Superior Liquidity:</strong> Orderly Omnivault aggregates liquidity across multiple chains, better depth than isolated Solana DEXs</li>
+                        <li><strong>Professional Trading Tools:</strong> Advanced order types, TradingView integration, API access for algorithmic traders</li>
+                        <li><strong>Lowest Fees for Active Traders:</strong> Fee discounts up to 50% for PNUT/NUTTY holders, beating all Solana DEX competitors</li>
+                        <li><strong>Meme Coin Focus:</strong> First-to-list trending Solana meme coins with boosted rewards (3x multiplier for new listings)</li>
+                    </ul>
+                </div>
+
+                <h3>Multi-Season Incentive Structure</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Season</th>
+                            <th>Duration</th>
+                            <th>Focus</th>
+                            <th>Incentives</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Season 1</strong></td>
+                            <td>2-4 weeks post-TGE</td>
+                            <td>PNUT Staking Vault Launch</td>
+                            <td>100% APY, aggressive NUTTY emissions, sNUTTY DeFi integrations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Season 2</strong></td>
+                            <td>Months 2-3</td>
+                            <td>NLP Provider Expansion</td>
+                            <td>50-75% APY for NLP providers, trading competitions, volume leaderboards</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Season 3</strong></td>
+                            <td>Months 4-6</td>
+                            <td>Cross-Chain Expansion</td>
+                            <td>Multi-chain trading rewards, new chain launch bonuses, bridge incentives</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Season 4+</strong></td>
+                            <td>Ongoing</td>
+                            <td>Sustainable Ecosystem</td>
+                            <td>Reduced but consistent emissions (20-30% APY), quarterly airdrops, governance participation rewards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Beyond PNUT Community: User Acquisition Strategy</h3>
+                <div class="scoring-grid">
+                    <div class="scoring-card">
+                        <h4>Meme Coin Traders</h4>
+                        <ul>
+                            <li><strong>Target:</strong> Jupiter/Raydium power users</li>
+                            <li><strong>Hook:</strong> First-to-list trending coins with 3x rewards</li>
+                            <li><strong>Retention:</strong> Lower fees + leverage trading</li>
+                            <li><strong>Estimated TAM:</strong> 100k+ active Solana meme traders</li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>Perpetual Traders</h4>
+                        <ul>
+                            <li><strong>Target:</strong> Hyperliquid, dYdX, GMX users</li>
+                            <li><strong>Hook:</strong> Solana-native perps with lower fees</li>
+                            <li><strong>Retention:</strong> NUTTY emissions on perp volume</li>
+                            <li><strong>Estimated TAM:</strong> 50k+ cross-chain perp traders</li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>Yield Farmers</h4>
+                        <ul>
+                            <li><strong>Target:</strong> DeFi yield optimizers</li>
+                            <li><strong>Hook:</strong> High APY NLP vaults, sNUTTY composability</li>
+                            <li><strong>Retention:</strong> Auto-compounding, multiple yield sources</li>
+                            <li><strong>Estimated TAM:</strong> 200k+ DeFi farmers on Solana</li>
+                        </ul>
+                    </div>
+
+                    <div class="scoring-card">
+                        <h4>Algorithmic Traders</h4>
+                        <ul>
+                            <li><strong>Target:</strong> Professional market makers, bots</li>
+                            <li><strong>Hook:</strong> API access, maker rebates, professional tools</li>
+                            <li><strong>Retention:</strong> Fee tier discounts, liquidity mining</li>
+                            <li><strong>Estimated TAM:</strong> 5k+ algo trading firms/individuals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Additional NUTTY Utility (Beyond Farming)</h3>
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>Governance:</strong> Vote on new listing additions, fee structure changes, emission schedules (launches Month 3)</li>
+                        <li><strong>Revenue Share:</strong> 50% of protocol profits distributed to NUTTY stakers (not just emissions)</li>
+                        <li><strong>Launchpad Access:</strong> Exclusive early access to new token launches on NUTTYDex (priority allocation based on NUTTY stake)</li>
+                        <li><strong>NFT Marketplace Fees:</strong> Future NFT trading integration with NUTTY as the fee token</li>
+                        <li><strong>Insurance Fund Participation:</strong> Stake NUTTY in insurance fund, earn share of liquidation profits</li>
+                        <li><strong>Premium Features:</strong> Advanced analytics, trading signals, copy trading (NUTTY subscription model)</li>
+                    </ul>
+                </div>
+
+                <h3>Retention Metrics & Success KPIs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Month 1 Target</th>
+                            <th>Month 3 Target</th>
+                            <th>Month 6 Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Daily Active Users</td>
+                            <td>10,000</td>
+                            <td>25,000</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Non-PNUT User %</td>
+                            <td>30%</td>
+                            <td>50%</td>
+                            <td>70%</td>
+                        </tr>
+                        <tr>
+                            <td>Daily Trading Volume</td>
+                            <td>$50M</td>
+                            <td>$150M</td>
+                            <td>$300M</td>
+                        </tr>
+                        <tr>
+                            <td>30-Day Retention Rate</td>
+                            <td>40%</td>
+                            <td>55%</td>
+                            <td>65%</td>
+                        </tr>
+                        <tr>
+                            <td>Organic Volume % (non-farming)</td>
+                            <td>20%</td>
+                            <td>40%</td>
+                            <td>60%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--text-muted);">
+                    <strong>Key Insight:</strong> By Month 6, target is 70% of users coming from outside PNUT community, with 60% of volume being organic (not farming-driven). This ensures long-term sustainability independent of initial PNUT partnership.
+                </p>
+            </div>
+
             <!-- Original Launch Phases - now renamed as Roadmap -->
             <div class="section">
-                <h2>9. Product Development Roadmap</h2>
+                <h2>10. Product Development Roadmap</h2>
                 
                 <h3>Feature Rollout Timeline</h3>
                 <table>
